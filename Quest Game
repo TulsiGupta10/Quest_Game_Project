@@ -1,0 +1,85 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main()
+{
+    int a,b,n,i,choice;
+    printf("                                    ********** QUEST GAME **********\n");
+    printf("                           *****~~~~~~***** Welcome In Quest Game *****~~~~~~*****\n\n");
+    printf("   GUIDELINES TO PLAY GAME:\n");
+    printf("*. In These Game You Have To Find The Secret Number Which Chosen By Computer In Between 1~100 Number.\n");
+    printf("*. You Have Different Levels You Can Choose Any One Of Them.\n");
+    printf("*. You Will Get Number Of Attempts According To Your Levels.\n");
+    printf("*. Enter 1 For Easy Level And You Will Get Only 10 Attempts.\n*. Enter 2 For Medium Level And You Will Get Only 7 Attempts.\n*. Enter 3 For Difficult Level And You Will Get Only 5 Attempts.\n");
+    printf("*. And Then Enter The Number Between 1~100 For Finding The Secret Number.\n");
+    printf("*. When Your Number is Match To The Secret Number Then You Will Win.\n\n");
+    printf("                          *******.NOW ITS TURN TO PLAY THE GAME.********\n");
+    printf("                                      **~*. GOOD LUCK .*~**\n\n");
+	printf("Press Any Key To Start The Game\n");
+	getch();
+    printf("ENTER YOUR CHOICE.\n");
+    printf("1.Easy Level\n");
+    printf("2.Medium Level\n");
+    printf("3.Difficult Level\n");
+    scanf("%d",&choice);
+    switch(choice)
+      {
+	    case 1:
+		    printf("** You Have Only 10 Chance To Win The Game.\n\n");
+		    b=10;
+		    break;
+	    case 2:
+	    	printf("**. You Have Only 7 Chance To Win The Game.\n\n");
+	    	b=7;
+		    break;
+	    case 3:
+		    printf("**. You Have Only 5 Chance To Win The Game.\n\n");
+		    b=5;
+		    break;
+	    default:
+		   printf("                     ******                THIS IS INVALID CHOICE          ****** \n\n                                          Please Enter Valid Choice.\n");
+		   exit(0);
+       }
+    	srand(time(NULL));
+		n=rand()%100+1; 
+	for(i=1;i<=b;i++)
+        {
+           printf("**. Enter Your Number Between 1~100.\n");
+           scanf("%d",&a);
+		   if(a>=1&&a<=100)
+	         {
+		        if(n>a)
+	              {
+		            printf("Secret Number Is Greater Than User Number.\n");
+	               }
+	            else if(n==a)
+      	          {
+	     	        printf("Secret Number Is Equal To Your Number.\n");
+		            break;
+	              }  
+	            else
+     	          {
+		             printf("Secret Number Is Less Than User Input.\n");
+      	          } 
+		        printf("You Have Only %d Remaining choices\n\n",b-i);
+              }  
+            else 
+              {
+   
+                 printf("Invalid Number \n\n Please Enter The Number Between 1~100\n");
+	             exit(0);
+	           }
+     
+        }
+    if(a==n)
+	{
+        printf("                                          *******             YOU WIN        *******\n\n"); 
+        printf("                                                     CONGRATS! YOU WIN THIS GAME.\n");
+	}
+    else
+	{
+        printf("                                     *******                 YOU LOSE        ********\n\n");
+        printf("                                                        SORRY! YOU LOSE THIS GAME .\n");
+        printf("                                                         PLEASE TRY AGAIN TO WIN.\n\n");
+    }
+    printf("                                                         ***.. Secret Number Is : %d .....",n);
+}
